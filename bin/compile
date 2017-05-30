@@ -201,6 +201,8 @@ cache_build() {
 header "Caching build"
 cache_build | output "$LOG_FILE"
 
+export PATH=/app/static/app/.heroku/node/bin:$PATH
+
 summarize_build() {
   if $NODE_VERBOSE; then
     list_dependencies "$BUILD_DIR"
