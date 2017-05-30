@@ -34,7 +34,7 @@ source $BP_DIR/lib/binaries.sh
 source $BP_DIR/lib/cache.sh
 source $BP_DIR/lib/dependencies.sh
 
-export PATH="/app/static/app/.heroku/node/bin:/app/static/app/.heroku/yarn/bin":$PATH
+export PATH="$BUILD_DIR/.heroku/node/bin:$BUILD_DIR/.heroku/yarn/bin":$PATH
 
 echo "Exported path: $PATH"
 
