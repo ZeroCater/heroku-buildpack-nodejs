@@ -13,8 +13,9 @@ DEFAULT_CACHE="node_modules bower_components"
 BPLOG_PREFIX="buildpack.nodejs"
 
 ### Configure directories
+echo "Base dir ${1:-}"
 
-BUILD_DIR="static/app"
+BUILD_DIR=${1:-}"/static/app"
 CACHE_DIR=${2:-}
 ENV_DIR=${3:-}
 BP_DIR=$(cd $(dirname ${0:-}); cd ..; pwd)
@@ -33,7 +34,7 @@ source $BP_DIR/lib/binaries.sh
 source $BP_DIR/lib/cache.sh
 source $BP_DIR/lib/dependencies.sh
 
-export PATH="$BUILD_DIR/.heroku/node/bin:$BUILD_DIR/.heroku/yarn/bin":$PATH
+export PATH="/app/static/app/.heroku/node/bin:/app/static/app/.heroku/yarn/bin":$PATH
 
 echo "Exported path: $PATH"
 
